@@ -32,12 +32,13 @@ wait()
 end
 end
 end
+for i,v in pairs(game.Workspace.Item:GetChildren()) do
+if v.Name == "Chest" and v.Position ~= Vector3.new(1804.5390625, -298.173583984375, -309.4649658203125) then
 if game.Players.LocalPlayer.Backpack:FindFirstChild("Chest Key") then
-if game.Workspace.Item.Chest then
-character.HumanoidRootPart.CFrame = game.Workspace.Item.Chest.CFrame
+character.HumanoidRootPart.CFrame = v.CFrame
 wait(2)
-if game.Workspace.Item.Chest.ProximityPrompt then
-local prox = game.Workspace.Item.Chest.ProximityPrompt
+if v.ProximityPrompt then
+local prox = v.ProximityPrompt
 fireproximityprompt(prox)
 wait(2)
 else
@@ -46,8 +47,7 @@ end
 else
 wait()
 end
-else
-wait()
+end
 end
 game:GetService("ReplicatedStorage"):WaitForChild("GlobalUsedRemotes"):WaitForChild("UpgradeMas"):FireServer()
 end)
