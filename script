@@ -1,0 +1,54 @@
+local player = game.Players.LocalPlayer
+local character = player.Character
+_G.keepgoing = true
+
+
+while _G.keepgoing == true do
+pcall(function()
+for i,v in pairs(game.Workspace.Item:GetChildren()) do
+if v.Name == "Box" and v.Position ~= Vector3.new(1804.5390625, -298.173583984375, -309.4649658203125) then
+character.HumanoidRootPart.CFrame = v.CFrame
+wait(2)
+if v.ProximityPrompt then
+local prox = v.ProximityPrompt
+fireproximityprompt(prox)
+wait(2)
+else
+wait()
+end
+end
+end
+wait(2)
+for i,v in pairs(game.Workspace.Item:GetChildren()) do
+if v.Name == "Barrel" and v.Position ~= Vector3.new(1804.5390625, -298.173583984375, -309.4649658203125) then
+character.HumanoidRootPart.CFrame = v.CFrame
+wait(2)
+if v.ProximityPrompt then
+local prox = v.ProximityPrompt
+fireproximityprompt(prox)
+wait(2)
+else
+wait()
+end
+end
+end
+if game.Players.LocalPlayer.Backpack:FindFirstChild("Chest Key") then
+if game.Workspace.Item.Chest then
+character.HumanoidRootPart.CFrame = game.Workspace.Item.Chest.CFrame
+wait(2)
+if game.Workspace.Item.Chest.ProximityPrompt then
+local prox = game.Workspace.Item.Chest.ProximityPrompt
+fireproximityprompt(prox)
+wait(2)
+else
+wait()
+end
+else
+wait()
+end
+else
+wait()
+end
+game:GetService("ReplicatedStorage"):WaitForChild("GlobalUsedRemotes"):WaitForChild("UpgradeMas"):FireServer()
+end)
+end
